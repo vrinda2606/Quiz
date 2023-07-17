@@ -177,13 +177,112 @@ body{
 
 .quiz-section{ 
     position: relative;
-    left: 0;
+    left: -50%;
     width: 100%;
-    background: #333;
+    background: #1d001a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: .8s ease-in-out;
     transition-delay: .25s;
     z-index: 4;
 }
 .quiz-section.active{
     left: 0;
+}
+
+.quiz-section .quiz-box{
+    position: relative;
+    width: 500px;
+    background: transparent;
+    border: 2px solid rgb(242, 130, 220);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
+}
+.quiz-section .quiz-box.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: 1s ease;
+    transition-delay: 1s;
+}
+
+.quiz-box h1{
+    font-size: 35px;
+    text-align: center;
+    background: linear-gradient(45deg,transparent,rgb(242,130,220),transparent);
+    border-radius: 6px;
+}
+.quiz-box .quiz-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-bottom: 2px solid rgb(242, 130, 220);
+}
+.quiz-header span{
+    font-size: 20px;
+    font-weight: 500;
+}
+.quiz-header .header-score{
+    background: rgb(111, 9, 91);
+    border-radius: 4px;
+    padding: 7px;
+}
+.quiz-box .ques-text{
+    font-size: 25px;
+    font-weight: 600;
+}
+.quiz-options .options{
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid rgba(255,255,255,.2);
+    font-size: 18px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+.quiz-options .options:hover{
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.1);
+}
+.quiz-box .quiz-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid rgb(242, 130, 220);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.quiz-footer .ques-total{
+    font-size: 18px;
+    font-weight: 600;
+}
+.quiz-footer .next-btn{
+    width: 110px;
+    height: 40px;
+    background: rgba(255,255,255,.1);
+    border: 2px solid rgba(255,255,255,.1);
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgba(255,255,255,.3);
+    font-weight: 600;
+    /*pointer-events: none;*/
+    cursor: pointer;
+    transition: .5s;
+}
+.quiz-footer .next-btn:hover{
+    background: rgb(242, 130, 220);
+    background-color: rgb(242, 130, 220);
+    color: white;
 }
