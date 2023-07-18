@@ -179,7 +179,7 @@ body{
     position: relative;
     left: -50%;
     width: 100%;
-    background: #1d001a;
+    background: #00001d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,7 +195,7 @@ body{
     position: relative;
     width: 500px;
     background: transparent;
-    border: 2px solid rgb(242, 130, 220);
+    border: 2px solid rgb(130, 139, 242);
     border-radius: 6px;
     display: flex;
     flex-direction: column;
@@ -203,6 +203,8 @@ body{
     opacity: 0;
     pointer-events: none;
     transform: scale(.9);
+    transition: .3s ease;
+    transition-delay: 0s;
 }
 .quiz-section .quiz-box.active{
     opacity: 1;
@@ -215,7 +217,7 @@ body{
 .quiz-box h1{
     font-size: 35px;
     text-align: center;
-    background: linear-gradient(45deg,transparent,rgb(242,130,220),transparent);
+    background: linear-gradient(45deg,transparent,rgb(130,139,242),transparent);
     border-radius: 6px;
 }
 .quiz-box .quiz-header{
@@ -224,14 +226,14 @@ body{
     align-items: center;
     margin-bottom: 20px;
     padding: 20px 0;
-    border-bottom: 2px solid rgb(242, 130, 220);
+    border-bottom: 2px solid rgb(130, 139, 242);
 }
 .quiz-header span{
     font-size: 20px;
     font-weight: 500;
 }
 .quiz-header .header-score{
-    background: rgb(111, 9, 91);
+    background: rgb(9, 26, 111);
     border-radius: 4px;
     padding: 7px;
 }
@@ -254,11 +256,24 @@ body{
     background: rgba(255,255,255,.1);
     border-color: rgba(255,255,255,.1);
 }
+
+.quiz-options .options.correct{
+    border: 2px solid darkgreen;
+    color: darkgreen;
+}
+.quiz-options .options.incorrect{
+    border: 2px solid rgb(191, 17, 17);
+    color: rgb(191, 17, 17);
+}
+.quiz-options .options.disabled{
+    pointer-events: none;
+}
+
 .quiz-box .quiz-footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 2px solid rgb(242, 130, 220);
+    border-top: 2px solid rgb(130, 139, 242);
     padding-top: 20px;
     margin-top: 20px;
 }
@@ -277,12 +292,106 @@ body{
     font-size: 16px;
     color: rgba(255,255,255,.3);
     font-weight: 600;
-    /*pointer-events: none;*/
+    pointer-events: none;
     cursor: pointer;
     transition: .5s;
 }
+.quiz-footer .next-btn.active{
+    pointer-events: auto;
+}
 .quiz-footer .next-btn:hover{
-    background: rgb(242, 130, 220);
-    background-color: rgb(242, 130, 220);
+    background: rgb(130,139,242);
+    background-color: rgb(130,139,242);
     color: white;
+}
+
+.quiz-section .result{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(.9);
+    width: 500px;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease ;
+}
+.quiz-section .result.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.result h2{
+    font-size: 55px;
+}
+.result .percentage{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 40px;
+}
+.percentage .progress{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(#4b00c4 3.6deg,rgba(255,255,255,.1) 0deg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.percentage .progress::before{
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: #00001d;
+    border-radius: 50%;
+}
+
+.progress .progress-value{
+    position: relative;
+    font-size: 45px;
+    font-weight: 600;
+}
+.percentage .score-text{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.result .buttons{
+    display: flex;
+}
+
+.buttons button{
+    width: 100px;
+    height: 45px;
+    background: rgb(135, 130, 238);
+    border: 2px solid black;
+    outline: none;
+    border-radius: 6px;
+    font: 1.5rem;
+    font-weight: 600;
+    margin: 0 50px 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+.buttons button:nth-child(2){
+    background: transparent;
+    color: rgb(130, 144, 238);
+    border-color: rgb(130, 134, 238);
+}
+.buttons button:nth-child(2):hover{
+    background: rgb(134, 130, 238);
+    color: black;
+    border-color: black;
 }
