@@ -148,7 +148,7 @@ function showResult(){
         progStartVal++;
         
         progressVal.textContent = `${progStartVal}%`;
-        progress.style.background = `conic-gradient(#c40094 ${progStartVal *3.6}deg,rgba(255,255,255,.1) 0deg)`;
+        progress.style.background = `conic-gradient(#4b00c4 ${progStartVal *3.6}deg,rgba(255,255,255,.1) 0deg)`;
 
         if(progStartVal == progEndVal){
             clearInterval(prog);
